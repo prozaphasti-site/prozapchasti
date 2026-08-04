@@ -1,0 +1,869 @@
+<html lang="uk"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROZAPCHASTI — підбір запчастин</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+ :root{
+    --bg: #14171a;
+    --bg-panel: #24282C;
+    --hazard: #C7CDD3;
+    --steel: #4C8FBD;
+    --text: #EDEDEC;
+    --muted: #92979E;
+    --line: #2f343b;
+    --success: #4CAF7D;
+}
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{background:var(--bg); color:var(--text); font-family:'IBM Plex Sans', sans-serif;}
+  h1,h2,h3{font-family:'Oswald', sans-serif; text-transform:uppercase; letter-spacing:0.02em;}
+
+    @media (max-width: 768px) {
+
+    .brandbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .social-buttons {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .main-logo {
+        width: 160px;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .left-column,
+    .right-column {
+        width: 100%;
+    }
+
+    .row2 {
+        grid-template-columns: 1fr;
+    }
+
+    .channel-group {
+        grid-template-columns: 1fr;
+    }
+
+    .chip-group {
+        justify-content: center;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+}
+  .hazard-bar{
+    height:6px;
+    background: var(--hazard);
+    width:100%;
+  }
+    .footer {
+    margin-top: 60px;
+    padding: 30px;
+
+    border-top: 1px solid var(--line);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+
+    color: var(--muted);
+}
+
+.footer-logo {
+    color: var(--steel);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--steel);
+}
+.main-logo {
+    max-width: 140px;
+    width: 100%;
+    height: auto;
+    padding: 12px;
+
+    border: 1px solid #4C8FBD;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 10px rgba(76, 143, 189, 0.25);
+
+    background: rgba(76, 143, 189, 0.08);
+}
+
+
+@media (max-width: 860px){
+
+    .brandbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .main-logo{
+        width:280px;
+    }
+}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+
+  /* top brand bar */
+ .brandbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+    .brands-line {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    align-items: center;
+    justify-items: center;
+
+    row-gap: 20px;
+    column-gap: 30px;
+
+    margin: 18px 0;
+    padding: 10px 0;
+}
+.brand-logo {
+    height: 22px;
+    width: auto;
+
+    opacity: 0.7;
+
+    transition: all 0.3s ease;
+}
+
+    .brand-logo-big {
+    height: 60px;
+
+}
+    
+    .brand-logo-large {
+    height: 80px;
+}
+.brand-logo:hover {
+    opacity: 1;
+
+    transform: translateY(-2px) scale(1.05);
+
+    filter: drop-shadow(0 0 8px rgba(76, 143, 189, 0.5));
+}
+.main-logo {
+    width: 180px;
+    height: auto;
+}
+
+  .main-logo {
+    animation: glow 4s infinite ease-in-out;
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 2px rgba(76, 143, 189, 0.1));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 10px rgba(76, 143, 189, 0.35));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 2px rgba(76, 143, 189, 0.1));
+    }
+}  
+.social-buttons {
+    display: flex;
+    gap: 12px;
+}
+    
+.social-icon {
+    width: 18px;
+    height: 18px;
+
+    margin-right: 8px;
+
+    color: #4C8FBD;
+
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover .social-icon {
+    color: #ffffff;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 18px;
+
+    background: rgba(76, 143, 189, 0.08);
+
+    border: 1px solid #4C8FBD;
+    border-radius: 12px;
+
+    color: var(--text);
+
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+
+    box-shadow: 0 4px 10px rgba(76, 143, 189, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+
+    background: #3a739d;
+    border-color: #69a4d1;
+
+    box-shadow: 0 0 20px rgba(76, 143, 189, 0.35);
+}
+  header.hero{
+    padding:22px 0 18px;
+  }
+  .eyebrow{
+    color:var(--hazard);
+    font-family:'Oswald', sans-serif;
+    font-size:13px;
+    letter-spacing:0.18em;
+    font-weight:600;
+    margin-bottom:8px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:24px; height:2px;
+    background:var(--hazard);
+    display:inline-block;
+  }
+  h1{
+    font-size:clamp(24px, 3.2vw, 32px);
+    line-height:1.1;
+    font-weight:;
+    max-width:640px;
+    margin-bottom:8px;
+  }
+  h1 span{color:var(--steel);}
+  .lede{
+    color:var(--muted);
+    font-size:14.5px;
+    max-width:480px;
+    line-height:1.4;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 50px;
+    align-items: start;
+    padding:0 0 24px;
+  }
+  @media (max-width: 860px){
+    .layout{grid-template-columns:1fr;}
+  }
+
+  .why{
+    padding-top:2px;
+  }
+    .why {
+    margin-top: 30px;
+}
+ .why-row{
+    display:flex;
+    gap:14px;
+    margin-bottom:28px;
+}
+    
+  .why-mark{
+    font-family:'Oswald', sans-serif;
+    color:var(--hazard);
+    font-weight:700;
+    font-size:15px;
+    flex-shrink:0;
+    width:26px;
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #2e5f82;
+    border: 1px solid #4C8FBD;
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    box-shadow: 0 4px 10px rgba(76, 143, 189, 0.25);
+  }
+  .why-text b{
+    display:block;
+    margin-bottom:6px;
+    font-size:13.5px;
+}
+    .why-text{
+    line-height:1.6;
+}
+  .why-text span{color:var(--muted); font-size:12.5px;}
+
+  .delivery-strip {
+    margin-top: 14px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--line);
+    padding-top: 34px;
+    width: 100%;
+}
+  .delivery-item{display:flex; flex-direction:column; gap:2px;}
+  .delivery-num{font-family:'Oswald', sans-serif; font-size:17px; font-weight:700; color:var(--steel);}
+  .delivery-label{font-size:12.5px; color:var(--muted);}
+
+  /* form panel */
+  .panel{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:18px 20px;
+  }
+  .panel h2{font-size:17px; margin-bottom:2px;}
+  .panel .sub{color:var(--muted); font-size:12.5px; margin-bottom:12px;}
+
+  .field{margin-bottom:9px;}
+  .field label{
+    display:block;
+    font-size:11.5px;
+    color:var(--muted);
+    margin-bottom:4px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .field label .req {
+    color: #4C8FBD;
+    font-weight: 600;
+}
+  .field input, .field select, .field textarea{
+    width:100%;
+    background:#1B1E21;
+    border:1px solid var(--line);
+    color:var(--text);
+    padding:8px 11px;
+    border-radius:3px;
+    font-size:13.5px;
+    font-family:'IBM Plex Sans', sans-serif;
+    transition:border-color 0.15s;
+  }
+  .field input:focus, .field textarea:focus{outline:none; border-color:var(--steel);}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  textarea{resize:vertical; min-height:38px;}
+
+  /* popular parts chips */
+  .chip-group{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:6px;}
+  .chip {
+    padding: 6px 10px;
+    border-radius: 6px;
+
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+
+    color: var(--text);
+
+    font-size: 11px;
+
+    transition: all 0.3s ease;
+}
+  .chip:hover {
+    border-color: #4C8FBD;
+    transform: translateY(-2px);
+}
+ .chip.active {
+    background: #2e5f82;
+    border-color: #4C8FBD;
+
+    color: #ffffff;
+
+    box-shadow: 0 4px 10px rgba(76, 143, 189, 0.2);
+}
+
+  /* file upload */
+  .file-drop{
+    border:1px dashed var(--line);
+    border-radius:3px;
+    padding:9px;
+    text-align:center;
+    font-size:12px;
+    color:var(--muted);
+    cursor:pointer;
+    transition:border-color 0.15s;
+    position:relative;
+  }
+  .file-drop:hover{border-color:var(--steel);}
+  .file-drop input[type=file]{
+    position:absolute; inset:0; opacity:0; cursor:pointer;
+  }
+  .file-drop.has-file{border-color:var(--success); color:var(--success);}
+
+  /* contact channel checkboxes */
+  .channel-group{display:flex; flex-wrap:wrap; gap:7px;}
+  .channel-opt{
+    display:flex; align-items:center; gap:6px;
+    background:#1B1E21;
+    border:1px solid var(--line);
+    padding:5px 9px;
+    border-radius:3px;
+    font-size:12.5px;
+    cursor:pointer;
+    transition:border-color 0.15s;
+  }
+ .channel-opt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 11px;
+
+    border: 1px solid var(--line);
+    border-radius: 10px;
+
+    background: rgba(76, 143, 189, 0.05);
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+.channel-opt:hover {
+    transform: translateY(-2px);
+
+    border-color: #4C8FBD;
+
+    background: rgba(76, 143, 189, 0.1);
+
+    box-shadow: 0 4px 10px rgba(76, 143, 189, 0.25);
+}
+  .channel-opt input {
+    accent-color: var(--steel);
+
+    width: 15px;
+    height: 15px;
+
+    cursor: pointer;
+}
+    
+.channel-opt svg {
+    width: 18px;
+    height: 18px;
+
+    transition: all 0.3s ease;
+}
+  .channel-opt.checked {
+    border-color: var(--steel);
+    color: #ffffff;
+    background: rgba(76, 143, 189, 0.15);
+
+    box-shadow: 0 4px 10px rgba(76, 143, 189, 0.2);
+}
+
+  .submit-btn{
+    width:100%;
+    background: #2e5f82;
+    color: #ffffff;
+    border: 1px solid #4C8FBD;
+    padding:11px;
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    font-size:13.5px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    border-radius:3px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+    margin-top:4px;
+  }
+  .submit-btn:hover {
+    background: #3a739d;
+    border-color: #69a4d1;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(76, 143, 189, 0.25);
+}
+  .submit-btn:active{transform:scale(0.98);}
+  .submit-btn:disabled{opacity:0.6; cursor:default;}
+
+  .form-note{font-size:11px; color:var(--muted); margin-top:6px; text-align:center;}
+
+  .success {
+    display: none;
+
+    text-align: center;
+
+    width: 100%;
+    min-height: 650px;
+
+    padding: 40px 30px;
+
+    border-radius: 12px;
+    border: 1px solid #4C8FBD;
+
+    background: rgba(76, 143, 189, 0.08);
+
+    box-shadow: 0 8px 20px rgba(76, 143, 189, 0.25);
+
+    box-sizing: border-box;
+}
+
+.success.show {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.success .check {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    background: rgba(76, 143, 189, 0.15);
+
+    border: 1px solid #4C8FBD;
+
+    color: #4C8FBD;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 4px 10px rgba(76, 143, 189, 0.25);
+}
+
+.success h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+.success p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+  footer{border-top:1px solid var(--line); padding:10px 0 14px; color:var(--muted); font-size:11.5px; text-align:center;}
+</style>
+</head>
+<body>
+
+<div class="hazard-bar"></div>
+
+<div class="wrap">
+  <div class="brandbar">
+
+    <img src="logo.png" class="main-logo" alt="PROZAPCHASTI">
+     <div class="brands-line">
+
+    <img src="logos/bosch.svg" class="brand-logo" alt="Bosch">
+    <img src="logos/brembo.svg" class="brand-logo" alt="Brembo">
+    <img src="logos/mahle.svg" class="brand-logo" alt="Mahle">
+    <img src="logos/mann-filter.svg" class="brand-logo" alt="Mann-Filter">
+    <img src="logos/sachs.svg" class="brand-logo brand-logo-big" alt="Sachs">
+    <img src="logos/skf.svg" class="brand-logo" alt="SKF">
+    <img src="logos/valeo.svg" class="brand-logo" alt="Valeo">
+    <img src="logos/lemferder.svg" class="brand-logo brand-logo-large" alt="lemferder">
+</div>
+      
+<div class="social-buttons">
+
+    <a href="https://www.instagram.com/prozapchasti.zp?igsh=MWo3bnN4a3prazJjNA%3D%3D&utm_source=qr"
+       class="social-btn" target="_blank">
+    <svg class="social-icon" viewBox="0 0 24 24">
+        <path fill="currentColor"
+              d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5zm5 4.8A5.2 5.2 0 1 1 6.8 12 5.2 5.2 0 0 1 12 6.8zm6.2-.9a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2zM12 8.3A3.7 3.7 0 1 0 15.7 12 3.7 3.7 0 0 0 12 8.3z"/>
+    </svg>
+
+    Instagram
+</a>
+
+    <a href="https://t.me/prozapchastizp"
+      class="social-btn" target="_blank">
+    <svg class="social-icon" viewBox="0 0 24 24">
+        <path fill="currentColor"
+              d="M21.5 3.5L2.9 10.7c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.9 6c.2.6.1.8.8.8.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.8-.8L23 5.2c.5-1.9-.7-2.8-1.5-1.7z"/>
+    </svg>
+
+    Telegram
+</a>
+
+    </div>
+
+</div>
+
+<section class="layout">
+
+    <div>
+
+        <header class="hero">
+
+            <div class="eyebrow">
+               Професіонально · Точно · Швидко
+            </div>
+
+            <h1>
+                Підбір автозапчастин за <span>15 хвилин</span>
+            </h1>
+
+            <p class="lede">
+               Оригінальні запчастини та перевірені аналоги за чесною ціною.
+            </p>
+
+            <div class="delivery-strip">
+
+                <div class="delivery-item">
+                    <div class="delivery-num">🚚 Нова Пошта</div>
+                    <div class="delivery-label">Швидка доставка по Україні</div>
+                </div>
+
+                <div class="delivery-item">
+                    <div class="delivery-num">🏙 Запоріжжя</div>
+                    <div class="delivery-label">Самовивіз і доставка</div>
+                </div>
+
+                <div class="delivery-item">
+                    <div class="delivery-num">⚡ 15 хвилин</div>
+                    <div class="delivery-label">
+                        Середній час обробки заявки
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+        <div class="why">
+      <div class="why-row">
+        <div class="why-mark">01</div>
+        <div class="why-text">
+          <b>Вкажіть VIN-код та перелік деталей</b>
+          <span>Ми врахуємо модифікацію, комплектацію та особливості вашого автомобіля.</span>
+        </div>
+      </div>
+      <div class="why-row">
+        <div class="why-mark">02</div>
+        <div class="why-text">
+          <b>Додайте прорахунок від іншого магазину (за наявності) </b>
+          <span>Ми перевіримо ціни та запропонуємо найкращий варіант.</span>
+        </div>
+      </div>
+      <div class="why-row">
+        <div class="why-mark">03</div>
+        <div class="why-text">
+          <b>Оберіть зручний спосіб зв'язку</b>
+          <span>Viber, WhatsApp, Telegram або дзвінок — як вам зручніше</span>
+        </div>
+      </div>
+    </div>
+</div>
+    <div class="panel">
+      <div id="formBlock">
+        <h2>Залишити заявку</h2>
+        <p class="sub">Відповімо за 15 хвилин у робочий час</p>
+
+        <form id="leadForm">
+          <div class="row2">
+            <div class="field">
+              <label>Марка</label>
+              <input type="text" placeholder="Toyota" required="" id="brand">
+            </div>
+            <div class="field">
+              <label>Модель</label>
+              <input type="text" placeholder="Camry" required="" id="model">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>VIN-код <span class="req">*обов'язково</span></label>
+            <input type="text" placeholder="17 символів" required="" id="vin" minlength="17" maxlength="17">
+          </div>
+
+          <div class="field">
+            <label>Що потрібно</label>
+            <div class="chip-group" id="chipGroup">
+              <div class="chip" data-part="Комплект для ТО">Кмоплект для ТО</div>
+              <div class="chip" data-part="Комплект зчеплення">Комплект зчеплення</div>
+              <div class="chip" data-part="Гальмівні колодки">Гальмівні колодки</div>
+              <div class="chip" data-part="Гальмівні диски">Гальмівні диски</div>
+              <div class="chip" data-part="Амортизатори">Амортизатори</div>
+              <div class="chip" data-part="Сайлентблоки підвіски">Сайлентблоки підвіски</div>
+              <div class="chip" data-part="Опори та підшипники амортизатора">Опори та підшипники амортизатора</div>
+              <div class="chip" data-part="Комплект ГРМ">Комплект ГРМ</div>
+              <div class="chip" data-part="Водяна помпа">Водяна помпа</div>
+                 <div class="chip" data-part="Масляний фільтр">Масляний фільтр</div>
+                <div class="chip" data-part="Повітряний фільтр.">Повітряний фільтр.</div>
+            </div>
+            <textarea placeholder="Оберіть декілька вище або допишіть своє" id="part"></textarea>
+          </div>
+
+          <div class="field">
+            <label>Прикріпити прорахунок від інших (за наявності)</label>
+            <div class="file-drop" id="fileDrop">
+              <span id="fileLabel">Натисніть або перетягніть файл/фото</span>
+              <input type="file" id="fileInput" accept="image/*,.pdf">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Куди зручно отримати відповідь</label>
+            <div class="channel-group" id="channelGroup">
+              <label class="channel-opt">
+                <input type="checkbox" value="Viber">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7360F2" stroke-width="2"><path d="M12 3C7 3 3 6.6 3 11c0 2.6 1.4 4.9 3.6 6.4L6 21l4-1.7c.6.1 1.3.2 2 .2 5 0 9-3.6 9-8S17 3 12 3z"></path></svg>
+                Viber
+              </label>
+              <label class="channel-opt">
+                <input type="checkbox" value="WhatsApp">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4CAF7D" stroke-width="2"><path d="M12 3C7 3 3 6.6 3 11c0 1.8.6 3.4 1.7 4.8L4 21l5.3-1.6c1 .4 2.1.6 3.2.6 5 0 9-3.6 9-8S17 3 12 3z"></path><path d="M8.5 9.5c0 4 3 6.5 6 6.5"></path></svg>
+                WhatsApp
+              </label>
+              <label class="channel-opt">
+                <input type="checkbox" value="Telegram">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4C8FBD" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M6.5 12l4 2 1-2.5L17 8l-9 3.5z"></path></svg>
+                Telegram
+              </label>
+              <label class="channel-opt">
+                <input type="checkbox" value="Дзвінок">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F2B705" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>
+                Дзвінок
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Телефон</label>
+            <input type="tel" placeholder="+380 xx xxx xx xx" required="" id="phone">
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">Отримати прорахунок</button>
+          <p class="form-note">Ми зв'яжемося з вами лише щодо вашого запиту.</p>
+        </form>
+      </div>
+
+      <div class="success" id="successBlock">
+        <div class="check">✓</div>
+        <h3>Ваш запит успішно надіслано</h3>
+        <p>Ми зв'яжемося з вами протягом 15 хвилин.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+
+    <div class="footer-logo">
+        PROZAPCHASTI
+    </div>
+
+    <div class="footer-info">
+        <p>📍 Запоріжжя</p>
+        <p>🚚 Відправлення по всій Україні</p>
+        <p>📞 +380 99 617 60 66</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="https://www.instagram.com/prozapchasti.zp/">Instagram</a>
+        <a href="https://t.me/prozapchastizp">Telegram</a>
+    </div>
+
+</footer>
+
+<script>
+  // popular part chips — multi-select
+  const chipGroup = document.getElementById('chipGroup');
+  const partField = document.getElementById('part');
+  function syncPartField(){
+    const active = [...document.querySelectorAll('.chip.active')].map(c => c.dataset.part);
+    partField.value = active.join(', ');
+  }
+  chipGroup.addEventListener('click', (e) => {
+    const chip = e.target.closest('.chip');
+    if(!chip) return;
+    chip.classList.toggle('active');
+    syncPartField();
+  });
+
+  // file drop
+  const fileInput = document.getElementById('fileInput');
+  const fileDrop = document.getElementById('fileDrop');
+  const fileLabel = document.getElementById('fileLabel');
+  fileInput.addEventListener('change', () => {
+    if(fileInput.files.length){
+      fileLabel.textContent = '✓ ' + fileInput.files[0].name;
+      fileDrop.classList.add('has-file');
+    }
+  });
+
+  // channel checkboxes visual state
+  document.querySelectorAll('.channel-opt input').forEach(cb => {
+    cb.addEventListener('change', () => {
+      cb.closest('.channel-opt').classList.toggle('checked', cb.checked);
+    });
+  });
+
+  // submit
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Надсилаємо...';
+    // На проді: тут запит до Telegram-бота / Google Sheets / CRM
+    setTimeout(() => {
+      document.getElementById('formBlock').style.display = 'none';
+      document.getElementById('successBlock').classList.add('show');
+    }, 600);
+  });
+</script>
+
+</body></html>
