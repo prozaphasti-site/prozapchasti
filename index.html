@@ -886,16 +886,25 @@
     };
 
     fetch(
-        'https://script.google.com/macros/s/AKfycbyvfu6HXLb_steANoyYAdYO3TI5Ms4FbLuFo6R5JWNpYo8xDJyInehgbzTw5RIXhiPs/exec',
-        {
-            method: 'POST',
-            body: JSON.stringify(data)
-        }
-    )
-        .then(() => {
-            document.getElementById('formBlock').style.display = 'none';
-            document.getElementById('successBlock').classList.add('show');
-        })
+    'https://script.google.com/macros/s/AKfycbyvfu6HXLb_steANoyYAdYO3TI5Ms4FbLuFo6R5JWNpYo8xDJyInehgbzTw5RIXhiPs/exec',
+    {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }
+)
+        
+.then(() => {
+    const formBlock = document.getElementById('formBlock');
+    const successBlock = document.getElementById('successBlock');
+
+    formBlock.style.display = 'none';
+    successBlock.style.display = 'block';
+    successBlock.classList.add('show');
+})
         .catch(() => {
             btn.disabled = false;
             btn.textContent = 'Отримати ціну';
