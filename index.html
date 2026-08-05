@@ -897,13 +897,13 @@
     const formBlock = document.getElementById('formBlock');
     const successBlock = document.getElementById('successBlock');
 
-    formBlock.style.display = 'none';
-
-    successBlock.style.display = 'block';
-    successBlock.style.opacity = '1';
-    successBlock.style.visibility = 'visible';
-
-    successBlock.classList.add('show');
+    formBlock.innerHTML = `
+        <div class="success show">
+            <div class="check">✓</div>
+            <h3>Ваш запит успішно надіслано</h3>
+            <p>Ми зв'яжемося з вами протягом 15 хвилин.</p>
+        </div>
+    `;
 })
 .catch((error) => {
     console.log(error);
