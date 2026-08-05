@@ -896,8 +896,16 @@
 .then((response) => {
     console.log(response);
 
-    document.getElementById('formBlock').style.display = 'none';
-    document.getElementById('successBlock').classList.add('show');
+    const formBlock = document.getElementById('formBlock');
+    const successBlock = document.getElementById('successBlock');
+
+    formBlock.style.display = 'none';
+
+    successBlock.style.display = 'block';
+    successBlock.style.opacity = '1';
+    successBlock.style.visibility = 'visible';
+
+    successBlock.classList.add('show');
 })
 .catch((error) => {
     console.log(error);
