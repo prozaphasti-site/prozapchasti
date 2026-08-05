@@ -868,17 +868,40 @@
   });
 
   // submit
-  document.getElementById('leadForm').addEventListener('submit', function(e){
+  document.getElementById('leadForm').addEventListener('submit', function (e) {
     e.preventDefault();
+
     const btn = document.getElementById('submitBtn');
+
     btn.disabled = true;
     btn.textContent = 'Надсилаємо...';
-    // На проді: тут запит до Telegram-бота / Google Sheets / CRM
-    setTimeout(() => {
-      document.getElementById('formBlock').style.display = 'none';
-      document.getElementById('successBlock').classList.add('show');
-    }, 600);
-  });
+
+    const data = {
+        brand: document.getElementById('brand').value,
+        model: document.getElementById('model').value,
+        vin: document.getElementById('vin').value,
+        plate: document.getElementById('plate').value,
+        part: document.getElementById('part').value,
+        phone: document.getElementById('phone').value
+    };
+
+    fetch(
+        'https://script.google.com/macros/s/AKfycbyvfu6HXLb_steANoyYAdYO3TI5Ms4FbLuFo6R5JWNpYo8xDJyInehgbzTw5RIXhiPs/exec',
+        {
+            method: 'POST',
+            body: JSON.stringify(data)
+        }
+    )
+        .then(() => {
+            document.getElementById('formBlock').style.display = 'none';
+            document.getElementById('successBlock').classList.add('show');
+        })
+        .catch(() => {
+            btn.disabled = false;
+            btn.textContent = 'Отримати ціну';
+            alert('Помилка надсилання.');
+        });
+});
 </script>
 
 </body></html>
