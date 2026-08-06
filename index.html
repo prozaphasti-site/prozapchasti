@@ -594,6 +594,39 @@
 }
 
   footer{border-top:1px solid var(--line); padding:10px 0 14px; color:var(--muted); font-size:11.5px; text-align:center;}
+ .telegram-upload-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 46px;
+
+    border-radius: 10px;
+    border: 1px solid #4C8FBD;
+
+    background: rgba(76, 143, 189, 0.1);
+
+    color: #e8eef5;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.25s;
+}
+
+.telegram-upload-btn:hover {
+    background: rgba(76, 143, 189, 0.2);
+    box-shadow: 0 0 15px rgba(76, 143, 189, 0.35);
+}
+
+.file-note {
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
 </style>
 </head>
 <body>
@@ -761,16 +794,20 @@
           </div>
 
           <div class="field">
-            <label>Прикріпити прорахунок від інших (за наявності)</label>
-            <div class="file-drop" id="fileDrop">
-              <span id="fileLabel">Натисніть або перетягніть файл/фото</span>
-              <input
-    type="file"
-    id="fileInput"
-    accept="image/*"
->
-            </div>
-          </div>
+    <label>Маєте готовий прорахунок?</label>
+
+    <p class="file-note">
+        Надішліть його нам у Telegram, і ми запропонуємо вигіднішу ціну.
+    </p>
+
+    <a
+        href="https://t.me/prozapchastizp"
+        target="_blank"
+        class="telegram-upload-btn"
+    >
+        📎 Надіслати прорахунок у Telegram
+    </a>
+</div>
 
           <div class="field">
             <label>Куди зручно отримати відповідь</label>
