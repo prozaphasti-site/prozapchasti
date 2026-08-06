@@ -764,7 +764,11 @@
             <label>Прикріпити прорахунок від інших (за наявності)</label>
             <div class="file-drop" id="fileDrop">
               <span id="fileLabel">Натисніть або перетягніть файл/фото</span>
-              <input type="file" id="fileInput" accept="image/*,.pdf">
+              <input
+    type="file"
+    id="fileInput"
+    accept="image/*"
+>
             </div>
           </div>
 
@@ -874,14 +878,19 @@
     btn.disabled = true;
     btn.textContent = 'Надсилаємо...';
 
-    const data = {
-        brand: document.getElementById('brand').value,
-        model: document.getElementById('model').value,
-        vin: document.getElementById('vin').value,
-        plate: document.getElementById('plate').value,
-        part: document.getElementById('part').value,
-        phone: document.getElementById('phone').value
-    };
+   const channels = [...document.querySelectorAll(
+    '#channelGroup input:checked'
+)].map(el => el.value);
+
+const data = {
+    brand: document.getElementById('brand').value,
+    model: document.getElementById('model').value,
+    vin: document.getElementById('vin').value,
+    plate: document.getElementById('plate').value,
+    part: document.getElementById('part').value,
+    phone: document.getElementById('phone').value,
+    channels: channels.join(', ')
+};
 
     fetch(
     'https://script.google.com/macros/s/AKfycbyvfu6HXLb_steANoyYAdYO3TI5Ms4FbLuFo6R5JWNpYo8xDJyInehgbzTw5RIXhiPs/exec',
