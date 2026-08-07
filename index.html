@@ -121,10 +121,6 @@
         flex-direction:column;
         gap:20px;
     }
-
-    .main-logo{
-        width:280px;
-    }
 }
   .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
 
@@ -889,16 +885,7 @@
     syncPartField();
   });
 
-  // file drop
-  const fileInput = document.getElementById('fileInput');
-  const fileDrop = document.getElementById('fileDrop');
-  const fileLabel = document.getElementById('fileLabel');
-  fileInput.addEventListener('change', () => {
-    if(fileInput.files.length){
-      fileLabel.textContent = '✓ ' + fileInput.files[0].name;
-      fileDrop.classList.add('has-file');
-    }
-  });
+ // file drop removed
 
   // channel checkboxes visual state
   document.querySelectorAll('.channel-opt input').forEach(cb => {
@@ -916,7 +903,7 @@
     btn.disabled = true;
     btn.textContent = 'Надсилаємо...';
 
-   const channels = [...document.querySelectorAll(
+  const channels = [...document.querySelectorAll(
     '#channelGroup input:checked'
 )].map(el => el.value);
 
@@ -946,13 +933,8 @@ const data = {
     const formBlock = document.getElementById('formBlock');
     const successBlock = document.getElementById('successBlock');
 
-    formBlock.innerHTML = `
-        <div class="success show">
-            <div class="check">✓</div>
-            <h3>Ваш запит успішно надіслано</h3>
-            <p>Ми зв'яжемося з вами протягом 15 хвилин.</p>
-        </div>
-    `;
+   formBlock.style.display = 'none';
+successBlock.classList.add('show');
 })
 .catch((error) => {
     console.log(error);
