@@ -951,23 +951,32 @@ const data = {
 };
   
 
-    fetch(
+  fetch(
     'https://script.google.com/macros/s/AKfycbz98pbXja8HdSKgG0EH5VRJz_qRnOCzwKZCtw0Joiueid1jxcDYCxnnSnWgHpJY595j/exec',
     {
         method: 'POST',
         body: JSON.stringify(data)
     }
 )
-    
-        
 .then((response) => {
     console.log(response);
+
+    if (!response.ok) {
+        throw new Error('Ошибка сервера: ' + response.status);
+    }
+
+    // Google Ads — заявка с сайта
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18290023099/cE03CNiK_eAcELu1rpFE',
+        'value': 1.0,
+        'currency': 'UAH'
+    });
 
     const formBlock = document.getElementById('formBlock');
     const successBlock = document.getElementById('successBlock');
 
-   formBlock.style.display = 'none';
-successBlock.classList.add('show');
+    formBlock.style.display = 'none';
+    successBlock.classList.add('show');
 })
 .catch((error) => {
     console.log(error);
