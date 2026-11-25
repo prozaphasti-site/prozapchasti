@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18290023099"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18290023099');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PRO ЗАПЧАСТИНИ — запчастини за VIN напряму від постачальників</title>
@@ -363,7 +366,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;ali
     <div style="position:relative"><h2 class="g" data-ru='Узнайте цену <span class="hl" style="color:var(--ink)">за 15 минут</span>'>Дізнайтеся ціну <span class="hl" style="color:var(--ink)">за 15 хвилин</span></h2><p class="lead" data-ru="Введите VIN — менеджер пришлёт цены поставщиков в Telegram.">Введіть VIN — менеджер надішле ціни постачальників у Telegram.</p></div>
     <div style="position:relative">
       <form class="vin" onsubmit="event.preventDefault();startFrom(this.v.value)"><div class="box"><input name="v" maxlength="17" placeholder="VIN · 17 символів" data-ph-ru="VIN · 17 символов"></div><button class="btn b-lime"><span data-ru="Подобрать запчасти">Підібрати запчастини</span><svg class="i"><use href="#arr"/></svg></button></form>
-      <div class="soc"><a href="https://t.me/" target="_blank"><svg class="i"><use href="#tg"/></svg>Telegram</a><a href="https://instagram.com/prozapchasti.zp" target="_blank"><svg class="i"><use href="#ig"/></svg>prozapchasti.zp</a></div>
+      <div class="soc"><a href="https://t.me/prozapchastizp" target="_blank"><svg class="i"><use href="#tg"/></svg>Telegram</a><a href="https://instagram.com/prozapchasti.zp" target="_blank"><svg class="i"><use href="#ig"/></svg>prozapchasti.zp</a></div>
     </div>
   </div>
 </div></section>
@@ -424,7 +427,7 @@ function decodeVin(v){
  const sub=year?year+T(' рік',' год'):range?range[0]+'–'+range[1]:T('рік уточнить менеджер','год уточнит менеджер');
  return [brand+(model?' '+model:''),sub+' · '+T('двигун уточнимо за VIN','двигатель уточним по VIN')];
 }
-const ST0=()=>({step:0,mode:'vin',vin:'',car:null,m:{b:'',md:'',y:'',e:''},parts:[],custom:'',phone:'',ch:'tg'});
+const ST0=()=>({step:0,mode:'vin',vin:'',car:null,m:{b:'',md:'',y:'',e:''},parts:[],custom:'',phone:'',ch:'Telegram'});
 let st=ST0(),tmr=null;
 const W=document.getElementById('wiz');
 const bar=n=>`<div class="steps">${[0,1,2,3].map(i=>`<i class="${i<=n?'on':''}"></i>`).join('')}</div>`;
@@ -459,10 +462,10 @@ function render(){
   <div class="chips"><span>🚗 ${st.car[0]}</span>${partNames().map(n=>`<span>🔧 ${n}</span>`).join('')}</div>
   <form class="form" onsubmit="event.preventDefault();send(this)">
    <input name="ph" type="tel" placeholder="+38 0__ ___ __ __" value="${st.phone}">
-   <div class="ch">${[['tg','Telegram','Telegram'],['vb','Viber','Viber'],['call','Дзвінок','Звонок']].map(c=>`<label><input type="radio" name="c" value="${c[0]}" ${st.ch===c[0]?'checked':''}>${T(c[1],c[2])}</label>`).join('')}</div>
+   <div class="ch">${[['Telegram','Telegram','Telegram'],['Viber','Viber','Viber'],['WhatsApp','WhatsApp','WhatsApp']].map(c=>`<label><input type="radio" name="c" value="${c[0]}" ${st.ch===c[0]?'checked':''}>${T(c[1],c[2])}</label>`).join('')}</div>
    <div class="err" id="er2"></div><button class="btn b-lime" style="height:56px">${T('Дізнатися ціну','Узнать цену')}<svg class="i"><use href="#arr"/></svg></button></form></div>`}
  if(s===3){const i=st.parts.length?st.parts[0]:0,p=PARTS[i],best=Math.min(...p[5].map(o=>o[2]));
-  h=`${bar(3)}<div class="stage done"><div class="ok"><svg class="i"><use href="#chk"/></svg></div><div class="wh">${T('Заявку прийнято','Заявка принята')}</div><div class="wp" style="margin-bottom:0">${T('Ціни надішлемо в','Цены пришлём в')} ${st.ch==='tg'?'Telegram':st.ch==='vb'?'Viber':T('дзвінку','звонке')} ${T('протягом','в течение')}</div>
+  h=`${bar(3)}<div class="stage done"><div class="ok"><svg class="i"><use href="#chk"/></svg></div><div class="wh">${T('Заявку прийнято','Заявка принята')}</div><div class="wp" style="margin-bottom:0">${T('Ціни надішлемо в','Цены пришлём в')} ${st.ch} ${T('протягом','в течение')}</div>
   <div class="timer" id="tm">15:00</div>
   <div class="ex"><div class="h">${T('Так виглядає відповідь · приклад','Так выглядит ответ · пример')}</div><div style="font-weight:700;margin-bottom:4px">🔧 ${T(p[1],p[2])} · ${st.car[0]}</div>${p[5].map(o=>`<div class="r ${o[2]===best?'best':''}"><span>${T(o[0],o[1])}</span><b>${fmt(o[2])} ₴</b></div>`).join('')}</div>
   <button class="btn b-ghost" style="margin-top:14px" onclick="st=ST0();render()">${T('Нова заявка','Новая заявка')}</button></div>`}
@@ -474,7 +477,13 @@ function goCar(){const m=st.m;if(!(m.b&&m.md&&m.y&&m.e)){document.getElementById
 function demo(){st.mode='vin';st.vin='WDD2211761A123456';st.car=decodeVin(st.vin);st.step=1;render()}
 function tog(i){const k=st.parts.indexOf(i);k<0?st.parts.push(i):st.parts.splice(k,1);st.custom=(document.getElementById('cq')||{}).value?.trim()||st.custom;render()}
 function nxt(){if(!st.parts.length&&!st.custom){document.getElementById('er3').textContent=T('Оберіть деталь або напишіть, що потрібно','Выберите деталь или напишите, что нужно');return}st.step=2;render()}
-function send(f){const ph=f.ph.value.replace(/\D/g,'');st.ch=f.c.value;if(ph.length<10){document.getElementById('er2').textContent=T('Вкажіть номер телефону','Укажите номер телефона');return}st.phone=f.ph.value;st.step=3;render()}
+const LEAD_URL='https://script.google.com/macros/s/AKfycbz98pbXja8HdSKgG0EH5VRJz_qRnOCzwKZCtw0Joiueid1jxcDYCxnnSnWgHpJY595j/exec';
+function send(f){const ph=f.ph.value.replace(/\D/g,'');st.ch=f.c.value;const er=document.getElementById('er2');if(ph.length<10){er.textContent=T('Вкажіть номер телефону','Укажите номер телефона');return}
+ st.phone=f.ph.value;const btn=f.querySelector('button.b-lime');btn.disabled=true;btn.firstChild.textContent=T('Надсилаємо...','Отправляем...');
+ let brand,model;if(st.mode==='car'&&st.m.b){brand=st.m.b;model=[st.m.md,st.m.y,st.m.e].filter(Boolean).join(' ')}else{const c=st.car[0]||'';const i=c.indexOf(' ');brand=i>0?c.slice(0,i):c;model=i>0?c.slice(i+1):''}
+ const data={brand,model,vin:st.mode==='vin'?st.vin:'',plate:'',part:partNames().join(', '),phone:st.phone,channels:st.ch};
+ fetch(LEAD_URL,{method:'POST',body:JSON.stringify(data)}).then(r=>{if(!r.ok)throw new Error(r.status);try{gtag('event','conversion',{send_to:'AW-18290023099/cE03CNiK_eAcELu1rpFE',value:1.0,currency:'UAH'})}catch(_){}st.step=3;render()})
+ .catch(()=>{btn.disabled=false;btn.firstChild.textContent=T('Дізнатися ціну','Узнать цену');er.textContent=T('Не вдалося надіслати. Спробуйте ще раз або напишіть нам у Telegram.','Не удалось отправить. Попробуйте ещё раз или напишите нам в Telegram.')})}
 function startFrom(v){window.scrollTo({top:0,behavior:'smooth'});st=ST0();st.vin=(v||'').toUpperCase().trim();if(st.vin.length===17){st.car=decodeVin(st.vin);st.step=1}render()}
 function focusVin(){st.step=0;st.mode='vin';render();setTimeout(()=>document.getElementById('vinIn')?.focus(),300)}
 render();
