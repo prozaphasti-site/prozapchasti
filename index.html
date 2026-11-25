@@ -207,7 +207,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;ali
 .reveal.in{opacity:1;transform:none}
 
 @media(max-width:1020px){.hero .w,.why,.final{grid-template-columns:1fr}h1.g{font-size:48px}h2.g{font-size:36px}.how{grid-template-columns:1fr 1fr}.bento{grid-template-columns:1fr 1fr}.b1,.b2,.b3,.b4,.b5{grid-column:span 2}.links{display:none}.final{padding:44px 28px}}
-@media(max-width:760px){#gl{opacity:.35}.wiz{min-height:0}.vin input{font-size:17px;letter-spacing:.06em;padding-right:56px}}
+@media(max-width:760px){#gl{opacity:.35}.wiz{min-height:0}.hero .w>*{min-width:0}.qor{text-align:center}@media(max-width:620px){.hero .pills{display:none}.qor{font-size:11px;letter-spacing:.04em}.msb a{height:62px;padding:0 14px}.cb .btn{padding:0 14px}}.vin input{font-size:17px;letter-spacing:.06em;padding-right:56px}}
 @media(max-width:620px){h1.g{font-size:38px}.hero{padding-top:110px}.parts{grid-template-columns:1fr 1fr}.how{grid-template-columns:1fr}.row{grid-template-columns:90px 1fr 70px}.row .v{font-size:16px}.bx .big{font-size:52px}.right .b-ink{display:none}.wiz{padding:20px;border-radius:24px}.mq .tr{font-size:20px}h2.g{font-size:30px}section{padding:70px 0}}
 
 .logo.lbl{font-size:12.5px;line-height:1.05;flex-wrap:wrap}.logo.lbl .pro{font-size:10.5px}
@@ -241,6 +241,41 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;ali
 .ua .pulse{fill:#C6F432;opacity:.55;transform-box:fill-box;transform-origin:center;animation:pl 2s ease-out infinite}
 @keyframes pl{0%{transform:scale(.6);opacity:.7}100%{transform:scale(2.4);opacity:0}}
 @media(max-width:760px){.b1{grid-template-columns:1fr}}
+
+.qf{display:flex;flex-direction:column;gap:12px}
+.qf .fld label{display:flex;justify-content:space-between;font-weight:700;font-size:13.5px;margin-bottom:6px}
+.qf .fld label i{font-style:normal;font-weight:500;color:var(--ink3)}
+.qf input[type=text],.qf input[type=tel]{width:100%;height:52px;border-radius:14px;border:1.5px solid var(--line);background:#fff;padding:0 14px;font-size:16px;outline:0;box-sizing:border-box}
+.qf input:focus{border-color:var(--ink);box-shadow:0 0 0 4px rgba(198,244,50,.4)}
+.qchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.qchips button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
+.qchips button.on{background:var(--ink);color:var(--lime);border-color:var(--ink)}
+.vhint{font-size:12.5px;color:var(--limeink);font-weight:700;margin-top:6px;min-height:0}
+.qch{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--ink2);flex-wrap:wrap}
+.qch label{display:flex;align-items:center;gap:5px;border:1.5px solid var(--line);border-radius:10px;padding:6px 10px;font-weight:600;cursor:pointer;background:#fff}
+.qch input{accent-color:#111214;margin:0}
+.qor{display:flex;align-items:center;gap:10px;color:var(--ink3);font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:4px 0}
+.qor:before,.qor:after{content:"";flex:1;height:1px;background:var(--line)}
+.qmsg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.qmsg a{height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15px;color:#fff}
+.qmsg .tg{background:#229ED9}.qmsg .vb{background:#7360F2}
+.qnote{font-size:12.5px;color:var(--ink3);text-align:center}
+.mbar{display:none}
+@media(max-width:760px){.mbar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;position:fixed;left:10px;right:10px;bottom:10px;z-index:60;background:rgba(17,18,20,.92);backdrop-filter:blur(12px);padding:6px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.mbar a{height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;gap:6px;color:#fff;font-weight:700;font-size:14px}
+.mbar .c{background:var(--lime);color:var(--ink)}.mbar .t{background:#229ED9}.mbar .v{background:#7360F2}footer{padding-bottom:90px}}
+
+.msb{display:flex;flex-direction:column;gap:10px}
+.msb a{display:flex;align-items:center;gap:14px;height:68px;border-radius:18px;padding:0 18px;color:#fff;transition:transform .15s}
+.msb a:hover{transform:translateY(-2px)}
+.msb a b{display:block;font-size:17px}.msb a small{display:block;font-size:12.5px;opacity:.85;font-weight:500}
+.msb .ic{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex:none}
+.msb .ic svg{width:22px;height:22px;stroke:#fff}
+.msb .ar{margin-left:auto;stroke:#fff;opacity:.8}
+.msb .tg{background:#229ED9}.msb .vb{background:#7360F2}.msb .wa{background:#1FAF55}
+.cb{display:flex;gap:8px}.cb input{flex:1;min-width:0;height:54px;border-radius:14px;border:1.5px solid var(--line);padding:0 14px;font-size:16px;outline:0;background:#fff}
+.cb input:focus{border-color:var(--ink)}.cb .btn{height:54px;padding:0 18px}.cb2 .opt{width:100%;margin-top:8px;height:46px;border-radius:12px;border:1.5px dashed var(--line);padding:0 14px;font-size:14px;outline:0;background:#fff;box-sizing:border-box}.cb2 .opt:focus{border-style:solid;border-color:var(--ink)}
+.wiz{min-height:0}.hero .w>*{min-width:0}.qor{text-align:center}@media(max-width:620px){.qor{font-size:11px;letter-spacing:.04em}.msb a{height:62px;padding:0 14px}.cb .btn{padding:0 14px}}
 </style>
 </head>
 <body>
@@ -290,7 +325,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;ali
     <div>
       <div class="kick"><b>−30%</b><span data-ru="дешевле, чем на СТО и в магазинах">дешевше, ніж на СТО та в магазинах</span></div>
       <h1 class="g"><span data-ru="Запчасти">Запчастини</span><br><span class="hl" data-ru="напрямую">напряму</span> <span data-ru="от поставщиков">від постачальників</span></h1>
-      <p class="sub" data-ru="Укажите VIN или модель авто — через 15 минут пришлём лучшую цену с нескольких складов.">Вкажіть VIN або модель авто — за 15 хвилин надішлемо найкращу ціну з кількох складів.</p>
+      <p class="sub" data-ru="Оригинал и проверенные аналоги с нескольких складов.">Оригінал і перевірені аналоги з кількох складів.</p>
       <div class="pills">
         <div class="pill"><svg class="i"><use href="#shield"/></svg><span data-ru="Проверяем совместимость по VIN">Перевіряємо сумісність за VIN</span></div>
         <div class="pill"><svg class="i"><use href="#truck"/></svg><span data-ru="1–2 дня по Украине">1–2 дні по Україні</span></div>
@@ -487,6 +522,33 @@ function send(f){const ph=f.ph.value.replace(/\D/g,'');st.ch=f.c.value;const er=
  .catch(()=>{btn.disabled=false;btn.firstChild.textContent=T('Дізнатися ціну','Узнать цену');er.textContent=T('Не вдалося надіслати. Спробуйте ще раз або напишіть нам у Telegram.','Не удалось отправить. Попробуйте ещё раз или напишите нам в Telegram.')})}
 function startFrom(v){window.scrollTo({top:0,behavior:'smooth'});st=ST0();st.vin=(v||'').toUpperCase().trim();if(st.vin.length===17){st.car=decodeVin(st.vin);st.step=1}render()}
 function focusVin(){st.step=0;st.mode='vin';render();setTimeout(()=>document.getElementById('vinIn')?.focus(),300)}
+/* ===== variant 3: messengers + phone ===== */
+const PHONE='380996176066';
+const MS=[['tg','Telegram','https://t.me/prozapchastizp','@prozapchastizp'],['vb','Viber','viber://chat?number=%2B'+PHONE,'Можна фото техпаспорта'],['wa','WhatsApp','https://wa.me/'+PHONE,'Без реєстрації']];
+const ICO={tg:'<path d="M21 4L3 11l6 2 2 6 3-4 5 4z" /><path d="M9 13l8-6"/>',vb:'<path d="M5 4h9a5 5 0 0 1 5 5v3a5 5 0 0 1-5 5h-4l-4 3v-3a4 4 0 0 1-2-3V7a3 3 0 0 1 1-3z"/><path d="M10 8c0 2.5 1.5 4 4 4"/>',wa:'<path d="M4 20l1.3-4A8 8 0 1 1 8 19z"/><path d="M9 9c0 3 3 6 6 6l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2z"/>'};
+let qs={done:false,phone:''};
+function msClick(k){try{gtag('event','messenger_click',{method:k})}catch(_){}}
+function render(){
+ clearInterval(tmr);let h='';
+ if(!qs.done){h=`<div class="stage"><div class="wh">${T('Дізнайтеся ціну за 15 хвилин','Узнайте цену за 15 минут')}</div><div class="wp" style="margin-bottom:16px">${T('Напишіть у зручний месенджер — що потрібно і на яке авто.','Напишите в удобный мессенджер — что нужно и на какое авто.')}</div>
+ <div class="msb">${MS.map(m=>`<a class="${m[0]}" href="${m[2]}" target="_blank" rel="noopener" onclick="msClick('${m[1]}')"><span class="ic"><svg class="i" viewBox="0 0 24 24">${ICO[m[0]]}</svg></span><span><b>${m[1]}</b><small>${m[3]}</small></span><svg class="i ar"><use href="#arr"/></svg></a>`).join('')}</div>
+ <div class="qor" style="margin:16px 0 12px">${T('або залиште номер — передзвонимо','или оставьте номер — перезвоним')}</div>
+ <form class="cb2" onsubmit="event.preventDefault();qSend(this)"><div class="cb"><input type="tel" name="ph" placeholder="+38 0__ ___ __ __" aria-label="${T('Телефон','Телефон')}"><button class="btn b-ink">${T('Передзвоніть','Перезвоните')}</button></div>
+ <input type="text" name="x" class="opt" placeholder="${T('VIN або що потрібно — необов\'язково','VIN или что нужно — необязательно')}" aria-label="VIN"></form>
+ <div class="err" id="er2" style="margin-top:6px"></div></div>`}
+ else{h=`<div class="stage done"><div class="ok"><svg class="i"><use href="#chk"/></svg></div><div class="wh">${T('Дякуємо!','Спасибо!')}</div><div class="wp">${T('Менеджер передзвонить протягом 15 хвилин.','Менеджер перезвонит в течение 15 минут.')}</div>
+ <button class="btn b-ghost" style="margin-top:8px" onclick="qs={done:false,phone:''};render()">${T('Назад','Назад')}</button></div>`}
+ W.innerHTML=h;
+}
+function qSend(f){const er=document.getElementById('er2');const ph=f.ph.value;if(ph.replace(/\D/g,'').length<10){er.textContent=T('Вкажіть номер телефону','Укажите номер телефона');return}
+ const btn=f.querySelector('button');btn.disabled=true;btn.textContent='...';
+ const x=(f.x.value||'').trim();const xv=x.replace(/\s/g,'').toUpperCase();const isVin=/^[A-HJ-NPR-Z0-9]{17}$/.test(xv);
+ const data={brand:isVin?decodeVin(xv)[0]:'',model:'',vin:isVin?xv:'',plate:'',part:isVin?'':x,phone:ph,channels:'Дзвінок'};
+ fetch(LEAD_URL,{method:'POST',body:JSON.stringify(data)}).then(r=>{if(!r.ok)throw new Error(r.status);try{gtag('event','conversion',{send_to:'AW-18290023099/cE03CNiK_eAcELu1rpFE',value:1.0,currency:'UAH'})}catch(_){}qs.done=true;render()})
+ .catch(()=>{btn.disabled=false;btn.textContent=T('Передзвоніть','Перезвоните');er.textContent=T('Не вдалося надіслати. Напишіть нам у Telegram.','Не удалось отправить. Напишите нам в Telegram.')})}
+function startFrom(v){window.scrollTo({top:0,behavior:'smooth'})}
+function focusVin(){window.scrollTo({top:0,behavior:'smooth'})}
+
 render();
 
 /* marquee */
